@@ -1,0 +1,32 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-4.0.xsd" />
+	<context:annotation-config/>
+	<context:component-scan base-package="com.HDipCloud" />
+	
+	<!-- Initialization for data source -->
+	<bean id="dataSource" 
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		<property name="url" value="jdbc:mysql://localhost:3306/deferralsystem"/>
+		<property name="username" value="root"/>
+		<property name="password" value="root"/>
+	</bean>
+		<bean id="CollegeStudentJdbc" class="com.HDipCloud.jdbctemplate.dao.interfaces.impl.CollegeStudentJdbcTemplate" autowire="byType">
+		</bean>
+		<bean id="CollegeModuleJdbc" class="com.HDipCloud.jdbctemplate.dao.interfaces.impl.CollegeBookOfModulesJbdcTemplate" autowire="byType">
+		</bean>
+		<bean id="CollegeModuleLecturerJdbc" class="com.HDipCloud.jdbctemplate.dao.interfaces.impl.CollegeModuleLecturerAssignmentsJdbcTemplate" autowire="byType">
+		</bean>
+		<bean id="CollegeLecturerJdbc" class="com.HDipCloud.jdbctemplate.dao.interfaces.impl.CollegeLecturerJdbcTemplate" autowire="byType">
+		</bean>
+		<bean id="CollegeCoursesJdbc" class="com.HDipCloud.jdbctemplate.dao.interfaces.impl.CollegeCoursesJdbcTemplate" autowire="byType">
+		</bean>
+		<bean id="CollegeRegisteredJdbc" class="com.HDipCloud.jdbctemplate.dao.interfaces.impl.CollegeRegistrationJdbcTemplate" autowire="byType">
+		</bean>
+		
+</beans>
